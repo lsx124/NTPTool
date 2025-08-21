@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <string>
 // 软件版本信息
 #define APP_NAME        L"NTP客户端 & 104主站"
