@@ -9,6 +9,7 @@
 #include "afxdialogex.h"
 #include "src/Ntp.h"
 #include "src/Settings.h"
+#include "src/Version.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -144,7 +145,8 @@ BOOL CNTPClientDlg::OnInitDialog()
 		CloseHandle(hToken);
 	}
 	
-	CString title = isElevated ? L"NTP客户端 & 104主站  ver 1.2 (管理员)" : L"NTP客户端 & 104主站  ver 1.2 (普通用户)";
+	std::wstring titleStr = GetAppTitle(isElevated);
+	CString title = titleStr.c_str();
 	SetWindowTextW(title);
 	
 	SetDlgItemTextW(IDC_EDIT1, m_settings.Server.c_str());
